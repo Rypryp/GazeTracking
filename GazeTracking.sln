@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GazeTracking", "GazeTracking\GazeTracking.csproj", "{B5C9992F-BB32-47D6-894F-DD89B7E1300E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Debug|x64.ActiveCfg = Debug|x64
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Debug|x64.Build.0 = Debug|x64
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Release|x64.ActiveCfg = Release|x64
+		{B5C9992F-BB32-47D6-894F-DD89B7E1300E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F65BA46-A877-42FA-ADDA-3B53019FF626}
+	EndGlobalSection
+EndGlobal

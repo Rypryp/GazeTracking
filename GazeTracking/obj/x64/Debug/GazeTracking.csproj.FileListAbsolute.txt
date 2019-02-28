@@ -1,0 +1,15 @@
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\tobii_firmware_upgrade.dll
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\tobii_pro.dll
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\GazeTracking.exe.config
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\GazeTracking.exe
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\GazeTracking.pdb
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\Tobii.Research.dll
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\bin\x64\Debug\Tobii.Research.xml
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.Form1.resources
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.Properties.Resources.resources
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.csproj.GenerateResource.cache
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.csproj.CoreCompileInputs.cache
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.csproj.CopyComplete
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.exe
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.pdb
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.csprojAssemblyReference.cache

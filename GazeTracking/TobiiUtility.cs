@@ -30,7 +30,7 @@ namespace GazeTracking
             }
         }
 
-        public void CalibrateEyeTracker(IEyeTracker eyeTracker)
+        public void CalibrateEyeTracker(IEyeTracker eyeTracker, TextBox infoTextBox)
         {
             var calibration = new ScreenBasedCalibration(eyeTracker);
 
@@ -46,7 +46,7 @@ namespace GazeTracking
 
             foreach (var point in pointsToCalibrate)
             {
-                Console.WriteLine("Show point on screen at ({0}, {1})", point.X, point.Y);
+                infoTextBox.Text = string.Format("Show point on screen at ({0}, {1})", point.X, point.Y);
                 System.Threading.Thread.Sleep(700);
 
                 CalibrationStatus status = calibration.CollectData(point);
@@ -58,10 +58,7 @@ namespace GazeTracking
             }
 
             CalibrationResult calibrationResult = calibration.ComputeAndApply();
-            Console.WriteLine("Compute and apply returned {0} and collected at {1} points.", calibrationResult.Status, calibrationResult.CalibrationPoints.Count);
-            
-            calibrationResult = calibration.ComputeAndApply();
-            Console.WriteLine("Second compute and apply returned {0} and collected at {1} points.", calibrationResult.Status, calibrationResult.CalibrationPoints.Count);
+            infoTextBox.Text = string.Format("Compute and apply returned {0} and collected at {1} points.", calibrationResult.Status, calibrationResult.CalibrationPoints.Count);       
 
             calibration.LeaveCalibrationMode();
         }

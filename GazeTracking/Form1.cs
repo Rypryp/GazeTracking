@@ -51,7 +51,7 @@ namespace GazeTracking
             }
             else
             {
-                tobiiUtility.CalibrateEyeTracker(eyeTracker);
+                tobiiUtility.CalibrateEyeTracker(eyeTracker, info_textBox);
             }
         }
 

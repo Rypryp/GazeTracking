@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tobii.Research;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace GazeTracking
 {
@@ -22,11 +24,6 @@ namespace GazeTracking
             tobiiUtility = new TobiiUtility();
 
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void findEyeTracker_button_Click(object sender, EventArgs e)
@@ -66,5 +63,40 @@ namespace GazeTracking
                 tobiiUtility.GazeData(eyeTracker, info_textBox);
             }
         }
+
+        private void button1_ClickAsync(object sender, EventArgs e)
+        {
+            SendHTTP();
+        }
+
+        private async void SendHTTP()
+        {
+
+            DataJson data = new DataJson();
+            data.user_id = "User1";
+            data.datetime = DateTime.Now.ToString();
+            data.data = "12,45,0.1,0.1";
+
+            string json = JsonConvert.SerializeObject(data);
+        
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://riski.business/eyetrack");
+            //httpWebRequest.ContentType = "gazedata";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                streamWriter.Write(json);
+            }
+
+            info_textBox.Text = "Sended " + json;
+        }
+    }
+
+    [Serializable]
+    public class DataJson
+    {
+        public string user_id;
+        public string datetime;
+        public string data;
     }
 }

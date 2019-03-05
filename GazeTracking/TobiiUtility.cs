@@ -69,9 +69,6 @@ namespace GazeTracking
 
             eyeTracker.GazeDataReceived += GazeDataReceived;
 
-            System.Threading.Thread.Sleep(1000);
-
-            eyeTracker.GazeDataReceived -= GazeDataReceived;
         }
 
         public void GazeDataReceived(object sender, GazeDataEventArgs e)

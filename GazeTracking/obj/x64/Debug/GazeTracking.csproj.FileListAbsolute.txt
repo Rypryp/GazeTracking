@@ -13,3 +13,4 @@ C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.
 C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.exe
 C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.pdb
 C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.csprojAssemblyReference.cache
+C:\Users\Pyry\source\repos\GazeTracking\GazeTracking\obj\x64\Debug\GazeTracking.Form2.resources

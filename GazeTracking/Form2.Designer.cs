@@ -29,42 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.calibratePoint1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.calibratePoint1)).BeginInit();
+            this.calibrationPoint = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationPoint)).BeginInit();
             this.SuspendLayout();
             // 
-            // calibratePoint1
+            // calibrationPoint
             // 
-            this.calibratePoint1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.calibratePoint1.Image = ((System.Drawing.Image)(resources.GetObject("calibratePoint1.Image")));
-            this.calibratePoint1.InitialImage = null;
-            this.calibratePoint1.Location = new System.Drawing.Point(285, 285);
-            this.calibratePoint1.Margin = new System.Windows.Forms.Padding(0);
-            this.calibratePoint1.Name = "calibratePoint1";
-            this.calibratePoint1.Size = new System.Drawing.Size(30, 30);
-            this.calibratePoint1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.calibratePoint1.TabIndex = 0;
-            this.calibratePoint1.TabStop = false;
+            this.calibrationPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.calibrationPoint.Image = ((System.Drawing.Image)(resources.GetObject("calibrationPoint.Image")));
+            this.calibrationPoint.InitialImage = null;
+            this.calibrationPoint.Location = new System.Drawing.Point(649, 262);
+            this.calibrationPoint.Margin = new System.Windows.Forms.Padding(0);
+            this.calibrationPoint.Name = "calibrationPoint";
+            this.calibrationPoint.Size = new System.Drawing.Size(30, 30);
+            this.calibrationPoint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.calibrationPoint.TabIndex = 0;
+            this.calibrationPoint.TabStop = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(584, 584);
+            this.ClientSize = new System.Drawing.Size(1904, 1064);
             this.ControlBox = false;
-            this.Controls.Add(this.calibratePoint1);
+            this.Controls.Add(this.calibrationPoint);
             this.Name = "Form2";
             this.TransparencyKey = System.Drawing.Color.White;
-            ((System.ComponentModel.ISupportInitialize)(this.calibratePoint1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calibrationPoint)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox calibratePoint1;
+        private System.Windows.Forms.PictureBox calibrationPoint;
     }
 }

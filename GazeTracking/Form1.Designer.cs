@@ -32,7 +32,6 @@
             this.calibrate_button = new System.Windows.Forms.Button();
             this.collectData_button = new System.Windows.Forms.Button();
             this.info_textBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // findEyeTracker_button
@@ -73,23 +72,12 @@
             this.info_textBox.Size = new System.Drawing.Size(379, 50);
             this.info_textBox.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(160, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 25);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Collect Data";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(418, 161);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.info_textBox);
             this.Controls.Add(this.collectData_button);
             this.Controls.Add(this.calibrate_button);
@@ -107,7 +95,6 @@
         private System.Windows.Forms.Button calibrate_button;
         private System.Windows.Forms.Button collectData_button;
         private System.Windows.Forms.TextBox info_textBox;
-        private System.Windows.Forms.Button button1;
     }
 }
 

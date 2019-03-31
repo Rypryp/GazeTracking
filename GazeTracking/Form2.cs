@@ -19,5 +19,10 @@ namespace GazeTracking
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
         }
+
+        public void MoveCalibrationPoint(int x, int y)
+        {
+            calibrationPoint.Location = new Point(x, y);
+        }
     }
 }

@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 using Tobii.Research;
 using System.IO;
 using System.Windows.Forms;
+using System.Threading;
+using System.Drawing;
 
 namespace GazeTracking
 {
     class TobiiUtility
     {
-        private TextBox infoTextBox;
+        public IEyeTracker currentEyeTracker;
+        public int sleepTime = 700;
+
+        private double EyeMovement;
+        private List<float> LeftPupil;
+        private List<float> RightPupil;
         
         public IEyeTracker FindEyeTracker()
         {
@@ -26,61 +33,86 @@ namespace GazeTracking
             else
             {
                 Console.WriteLine("Found eye tracker: {0}, {1}, {2}, {3}, {4}, {5}", eyeTrackers[0].Address, eyeTrackers[0].DeviceName, eyeTrackers[0].Model, eyeTrackers[0].SerialNumber, eyeTrackers[0].FirmwareVersion, eyeTrackers[0].RuntimeVersion);
-                return eyeTrackers[0];
+
+                currentEyeTracker = eyeTrackers[0];
+                return currentEyeTracker;
             }
         }
 
-        public void CalibrateEyeTracker(IEyeTracker eyeTracker, TextBox infoTextBox)
+        public string CalibrateEyeTracker()
         {
-            var calibration = new ScreenBasedCalibration(eyeTracker);
-
-            calibration.EnterCalibrationMode();
+             var calibration = new ScreenBasedCalibration(currentEyeTracker);
+             calibration.EnterCalibrationMode();
 
             var pointsToCalibrate = new NormalizedPoint2D[] {
-                new NormalizedPoint2D(0.5f, 0.5f),
-                new NormalizedPoint2D(0.5f, 0.5f),
-                new NormalizedPoint2D(0.5f, 0.5f),
-                new NormalizedPoint2D(0.5f, 0.5f),
+                new NormalizedPoint2D(0.9f, 0.9f),
+                new NormalizedPoint2D(0.9f, 0.1f),
+                new NormalizedPoint2D(0.1f, 0.1f),
+                new NormalizedPoint2D(0.1f, 0.9f),
                 new NormalizedPoint2D(0.5f, 0.5f),
             };
 
             foreach (var point in pointsToCalibrate)
-            {
-                infoTextBox.Text = string.Format("Show point on screen at ({0}, {1})", point.X, point.Y);
-                System.Threading.Thread.Sleep(700);
+            {                
+                Thread.Sleep(sleepTime);
 
-                CalibrationStatus status = calibration.CollectData(point);
+                 CalibrationStatus status = calibration.CollectData(point);
 
                 if (status != CalibrationStatus.Success)
-                {
-                    calibration.CollectData(point);
-                }
+                 {
+                     calibration.CollectData(point);
+                 }
             }
 
             CalibrationResult calibrationResult = calibration.ComputeAndApply();
-            infoTextBox.Text = string.Format("Compute and apply returned {0} and collected at {1} points.", calibrationResult.Status, calibrationResult.CalibrationPoints.Count);       
-
             calibration.LeaveCalibrationMode();
+            return string.Format("Compute and apply returned {0} and collected at {1} points.", calibrationResult.Status, calibrationResult.CalibrationPoints.Count);
         }
-
-        public void GazeData(IEyeTracker eyeTracker, TextBox infoTextBox)
+        
+        public void GazeData(IEyeTracker eyeTracker)
         {
-            this.infoTextBox = infoTextBox;
-
             eyeTracker.GazeDataReceived += GazeDataReceived;
-
         }
 
         public void GazeDataReceived(object sender, GazeDataEventArgs e)
         {
-            string data = string.Format("Got gaze data with {0} left eye origin at point ({1}, {2}, {3}) in the user coordinate system.",
-                e.LeftEye.GazeOrigin.Validity,
-                e.LeftEye.GazeOrigin.PositionInUserCoordinates.X,
-                e.LeftEye.GazeOrigin.PositionInUserCoordinates.Y,
-                e.LeftEye.GazeOrigin.PositionInUserCoordinates.Z);
+            EyeMovement =+ CalculateMovement(e.LeftEye.GazeOrigin.PositionInUserCoordinates.X, e.LeftEye.GazeOrigin.PositionInUserCoordinates.Y);
 
-            infoTextBox.Text = data;
-            Console.WriteLine(data);
+            RightPupil.Add(e.RightEye.Pupil.PupilDiameter);
+            LeftPupil.Add(e.LeftEye.Pupil.PupilDiameter);
+        }
+
+        private double CalculateMovement(double x, double y)
+        {
+            double hypo = Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2));
+            return hypo;
+        }
+
+        public void InitDataGather()
+        {
+            EyeMovement = 0;
+            LeftPupil.Clear();
+            RightPupil.Clear();
+        }
+
+        public string GetData()
+        {
+            float leftPupilMedian = 0;
+            foreach(float p in LeftPupil)
+            {
+                leftPupilMedian = + p;
+            }
+            leftPupilMedian = leftPupilMedian / LeftPupil.Count;
+
+            float rightPupilMedian = 0;
+            foreach (float p in RightPupil)
+            {
+                rightPupilMedian = +p;
+            }
+            rightPupilMedian = rightPupilMedian / RightPupil.Count;
+
+            string data = EyeMovement + ":" + leftPupilMedian + ":" + rightPupilMedian;
+            return data;
         }
     }
 }

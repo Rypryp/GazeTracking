@@ -55,8 +55,6 @@ namespace GazeTracking
 
         private async void CalibrateAsync()
         {
-
-
             if (eyeTracker == null)
             {
                 info_textBox.Text = "No eye trackers connected, could not calibrate";
@@ -113,6 +111,7 @@ namespace GazeTracking
         private void timer1_Tick(object sender, EventArgs e)
         {
             SendHTTP();
+            tobiiUtility.InitDataGather();
         }
 
         private void SendHTTP()
